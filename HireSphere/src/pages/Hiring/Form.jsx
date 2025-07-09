@@ -1,33 +1,113 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import '/Users/aaryasoni/Desktop/HireSphere/HireSphere/src/styles/Form.css';
 
 const Form = () => {
 
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        location: '',
+        position: '',
+        resume: null,
+        comments: ''
+      });
+      
 
-    const handleNameChange = (event) => {
-        setFirstName(event.target.value)
+    const handleChange = (event) => {
+        const {name, value} = event.target;
+        setFormData(() => ({
+            ...prevData,
+            [name]: value
+        }));
     };
+
+    const handleFileChange = (event) => {
+        setFormData(() => ({
+            ...prevData,
+            resume: event.target.files[0]
+        }));
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault(); 
-        console.log("Submitted First Name: ", firstName +" "+ lastName);
-        alert(`Hello, ${firstName} ${lastName}!`);
+        console.log("Submitted Form: ", {formData});
+        alert(`Thank you ${firstName} ${lastName}! Your application has been received!`);
     };
 
   return (
 
-    <div>
+    <div className="form-container">
         <h1>Candidate Information</h1>
 
         <form onSubmit={handleSubmit}>
             <div>
-                <label> Full Name </label>
-                <input type = "text" value = {firstName} onChange={handleNameChange} placeholder = "Enter your First Name" />
-                <input type = "text" value = {lastName} onChange={handleLastNameChange}  placeholder = "Enter your Last Name" />
+                {/* === Personal Details === */}
+
+                <div className="form-group">
+                    <label>First Name</label>
+                    <input type = "text" name="firstName" value = {formData.firstName} onChange={handleChange} placeholder = "First Name" />
+                </div>
+
+                <br />
+
+                <div className="form-group">
+                    <label>Last Name</label>
+                    <input type = "text" name="lastName" value = {formData.lastName} onChange={handleChange} placeholder = "Last Name" />
+                </div>
+
+                <br />
+
+                <div className="form-group">
+                    <label>Email</label>
+                    <input type = "email" name="email" value = {formData.email} onChange={handleChange} placeholder = "Email" />
+                </div>
+
+                <br />
+
+                <div className="form-group">
+                    <label>Phone Number</label>
+                    <input type = "tel" name="phone" value = {formData.phone} onChange={handleChange} placeholder = "Phone Number" />
+                </div>
+
+                <br />
+
+                <div className="form-group">
+                    <label>Location</label>
+                    <input type = "text" name="location" value = {formData.location} onChange={handleChange} placeholder = "Location" />
+                </div>
+
+                <br />
+
+                 {/* === Job Information === */}
+
+                <div className="form-group">
+                    <label>Position</label>
+                    <input type = "text" name="position" value = {formData.position} onChange={handleChange} placeholder = "Position" />
+                </div>
+
+                <br />
+
+                <div className="form-group">
+                    <label>Resume</label>
+                    <input type = "file" accept=".pdf,.doc,.docx" onChange={handleChange} />
+                </div>
+
+                <br />
+
+                {/* === Additional Info === */}
+
+                <div className="form-group">
+                    <label>Comments</label>
+                    <textarea name="comments" value={formData.comments} onChange={handleChange} />
+                </div>
+                
             </div>
 
             <br />
+
+            {/* === Submit === */}
 
             <button type="submit">Submit</button>
         </form>

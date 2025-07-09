@@ -8,7 +8,6 @@ function App() {
 
   return (
     <div>
-      <ApplicationTracker />
       <Form />
     </div>
   )
