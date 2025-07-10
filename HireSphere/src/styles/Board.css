@@ -1,86 +1,108 @@
-/* Board Container */
+/* Main Board Container */
 .board-container {
     display: flex;
-    gap: 1rem;
-    padding: 2rem;
-    background-color: #f4f5f7;
-    min-height: 100vh;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #f0f2f5;
+    min-height: 100vh;
   }
   
-  /* Individual Column */
+  /* Column Container */
   .column {
     background-color: #ffffff;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 1rem;
-    width: 250px;
-    min-height: 300px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 260px;
+    min-height: 400px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s;
+  }
+  
+  .column:hover {
+    transform: translateY(-2px);
   }
   
   /* Column Title */
   .column-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #2d3748;
+    font-size: 1.25rem;
+    font-weight: 700;
     text-align: center;
+    margin-bottom: 1rem;
+    color: #1f2937;
   }
   
-  /* Item Card */
+  /* Individual Card */
   .item-card {
-    background-color: #edf2f7;
-    border-radius: 6px;
-    padding: 0.75rem;
+    background-color: #f8fafc;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
     margin-bottom: 0.75rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     cursor: grab;
-    transition: background-color 0.2s ease;
+    font-size: 1rem;
+    color: #111827;
+    position: relative;
+    transition: background-color 0.2s ease, transform 0.2s ease;
   }
   
   .item-card:hover {
     background-color: #e2e8f0;
+    transform: scale(1.02);
   }
   
-  /* Input & Add Candidate */
+  /* Remove Button */
+  .remove-btn {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    background: none;
+    border: none;
+    color: #ef4444;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .remove-btn:hover {
+    color: #b91c1c;
+  }
+  
+  /* Add Candidate Section */
   .add-candidate {
     display: flex;
     flex-direction: column;
-    margin: 1rem 0;
+    gap: 0.5rem;
+    margin: 2rem;
+    max-width: 200px;
   }
   
   .add-candidate input {
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: 1px solid #cbd5e0;
-    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #111827;
   }
   
   .add-candidate button {
-    background-color: #3182ce;
-    color: white;
+    padding: 0.5rem 0.75rem;
+    background-color: #3b82f6;
     border: none;
-    padding: 0.5rem;
-    border-radius: 4px;
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
     cursor: pointer;
     transition: background-color 0.2s ease;
   }
   
   .add-candidate button:hover {
-    background-color: #2b6cb0;
-  }
-  
-  /* Remove Button (optional) */
-  .remove-btn {
-    background: none;
-    border: none;
-    color: #e53e3e;
-    float: right;
-    cursor: pointer;
-    font-size: 0.9rem;
+    background-color: #2563eb;
   }
   
