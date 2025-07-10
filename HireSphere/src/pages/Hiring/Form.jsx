@@ -77,7 +77,7 @@ const Form = () => {
                     <br />
                     <div className="form-group">
                         <label>Resume</label>
-                        <input type = "file" accept=".pdf,.doc,.docx" onChange={handleFileChange} />
+                        <input type = "file" name="resume" accept=".pdf,.doc,.docx" onChange={handleFileChange} />
                     </div>
                     <br />
                     {/* === Additional Info === */}
