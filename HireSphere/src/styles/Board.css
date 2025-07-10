@@ -1,108 +1,116 @@
-/* Main Board Container */
+/* New: Board Wrapper and Title */
+.board-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-image: linear-gradient( purple, pink);
+  min-height: 100vh;
+}
+
+.board-title {
+  font-size: 4rem;
+  font-weight: bold;
+  font-family:'Times New Roman', Times, serif;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+/* Updated: Board Container */
 .board-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 2rem;
-    padding: 2rem;
-    background-color: #f0f2f5;
-    min-height: 100vh;
-  }
-  
-  /* Column Container */
-  .column {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 1rem;
-    width: 260px;
-    min-height: 400px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s;
-  }
-  
-  .column:hover {
-    transform: translateY(-2px);
-  }
-  
-  /* Column Title */
-  .column-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 1rem;
-    color: #1f2937;
-  }
-  
-  /* Individual Card */
-  .item-card {
-    background-color: #f8fafc;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.75rem;
-    cursor: grab;
-    font-size: 1rem;
-    color: #111827;
-    position: relative;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-  }
-  
-  .item-card:hover {
-    background-color: #e2e8f0;
-    transform: scale(1.02);
-  }
-  
-  /* Remove Button */
-  .remove-btn {
-    position: absolute;
-    right: 10px;
-    top: 8px;
-    background: none;
-    border: none;
-    color: #ef4444;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: color 0.2s ease;
-  }
-  
-  .remove-btn:hover {
-    color: #b91c1c;
-  }
-  
-  /* Add Candidate Section */
-  .add-candidate {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin: 2rem;
-    max-width: 200px;
-  }
-  
-  .add-candidate input {
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    font-size: 1rem;
-    background-color: #ffffff;
-    color: #111827;
-  }
-  
-  .add-candidate button {
-    padding: 0.5rem 0.75rem;
-    background-color: #3b82f6;
-    border: none;
-    border-radius: 6px;
-    color: white;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .add-candidate button:hover {
-    background-color: #2563eb;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* Same as before — keep these */
+.column {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 250px;
+  min-height: 300px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.column-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #769bd0;
+}
+
+.item-card {
+  background-color: #f8fafc;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  cursor: grab;
+  font-size: 1rem;
+  color: #111827;
+  position: relative;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.item-card:hover {
+  background-color: #e2e8f0;
+  transform: scale(1.02);
+}
+
+.remove-btn {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.remove-btn:hover {
+  color: #b91c1c;
+}
+
+/* Updated: Add Candidate section at bottom center */
+.add-candidate {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.add-candidate input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #111827;
+  width: 200px;
+}
+
+.add-candidate button {
+  padding: 0.5rem 1rem;
+  background-color: #769bd0;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-candidate button:hover {
+  background-color: pink;
+}

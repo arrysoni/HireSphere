@@ -6,42 +6,42 @@ const Board = () => {
     const [columns, setColumns] = useState({
 
         candidates: {
-            name: "Aarya Soni",
+            name: "Candidates",
             items: [
-                {id: "1", content: "FrontEnd Developer"},
-                {id: "2", content: "AI/ML Engineer"}
+                {id: "1", content: "Aarya"},
+                {id: "2", content: "Shree"}
             ]
         },
     
         technical_round: {
-            name: "Apoorv",
+            name: "Technical Round",
             items: [
-                {id:"3", content: "Data Scientist"},
-                {id:"4", content: "AI/ML Scientist"}
+                {id:"3", content: "Anvesha"},
+                {id:"4", content: "Aanya"}
             ]
         },
     
         interview_round: {
-            name: "Shree",
+            name: "Interview Round",
             items: [
-                {id:"5", content: "Aerospace Engineer"},
-                {id:"6", content: "Pilot"}
+                {id:"5", content: "Mom"},
+                {id:"6", content: "Dad"}
             ]
         },
     
         offered: {
-            name: "Anu",
+            name: "Offered",
             items: [
-                {id:"7", content: "Accountant"},
-                {id:"8", content: "Economist"}
+                {id:"7", content: "Aunt"},
+                {id:"8", content: "Uncle"}
             ]
         },
     
         accepted: {
-            name: "Aanu",
+            name: "Accepted",
             items: [
-                {id:"9", content: "Singer"},
-                {id:"10", content: "Artist"}
+                {id:"9", content: "Grandma"},
+                {id:"10", content: "Grandpa"}
             ]
     
         }
@@ -113,7 +113,38 @@ const Board = () => {
     }
 
     return (
-        <div className="board-container">
+        <div className="board-wrapper">
+          <h1 className="board-title">Application Manager</h1>
+      
+          <div className="board-container">
+            {Object.entries(columns).map(([columnID, column]) => (
+              <div
+                className="column"
+                key={columnID}
+                onDragOver={handleDragOver}
+                onDrop={(e) => handleDrop(e, columnID)}
+              >
+                <h2 className="column-title">{column.name}</h2>
+                {column.items.map((item) => (
+                  <div
+                    className="item-card"
+                    key={item.id}
+                    draggable
+                    onDragStart={() => handleDragStart(columnID, item)}
+                  >
+                    {item.content}
+                    <button
+                      className="remove-btn"
+                      onClick={() => removeCandidate(columnID, item.id)}
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+      
           <div className="add-candidate">
             <input
               type="text"
@@ -123,36 +154,9 @@ const Board = () => {
             />
             <button onClick={addNewCandidate}>Add Candidate</button>
           </div>
-      
-          {Object.entries(columns).map(([columnID, column]) => (
-            <div
-              className="column"
-              key={columnID}
-              onDragOver={handleDragOver}
-              onDrop={(e) => handleDrop(e, columnID)}
-            >
-              
-            <h2 className="column-title">{column.name}</h2>
-              {column.items.map((item) => (
-                <div
-                  className="item-card"
-                  key={item.id}
-                  draggable
-                  onDragStart={() => handleDragStart(columnID, item)}
-                >
-                  {item.content}
-                  <button
-                    className="remove-btn"
-                    onClick={() => removeCandidate(columnID, item.id)}
-                  >
-                    ×
-                  </button>
-                </div>
-              ))}
-            </div>
-          ))}
         </div>
       );
+      
     }      
 
 export default Board;
