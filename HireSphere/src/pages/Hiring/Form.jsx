@@ -33,84 +33,65 @@ const Form = () => {
     const handleSubmit = (event) => {
         event.preventDefault(); 
         console.log("Submitted Form: ", {formData});
-        alert(`Thank you ${firstName} ${lastName}! Your application has been received!`);
+        alert(`Thank you ${formData.firstName} ${formData.lastName}! Your application has been received!`);
     };
 
   return (
 
-    <div className="form-container">
-        <h1>Candidate Information</h1>
-
-        <form onSubmit={handleSubmit}>
-            <div>
-                {/* === Personal Details === */}
-
-                <div className="form-group">
-                    <label>First Name</label>
-                    <input type = "text" name="firstName" value = {formData.firstName} onChange={handleChange} placeholder = "First Name" />
+    <div className="form-wrapper">
+        <div className="form-container">
+            <h1>Candidate Information</h1>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    {/* === Personal Details === */}
+                    <div className="form-group">
+                        <label>First Name</label>
+                        <input type = "text" name="firstName" value = {formData.firstName} onChange={handleChange} placeholder = "First Name" />
+                    </div>
+                    <br />
+                    <div className="form-group">
+                        <label>Last Name</label>
+                        <input type = "text" name="lastName" value = {formData.lastName} onChange={handleChange} placeholder = "Last Name" />
+                    </div>
+                    <br />
+                    <div className="form-group">
+                        <label>Email</label>
+                        <input type = "email" name="email" value = {formData.email} onChange={handleChange} placeholder = "Email" />
+                    </div>
+                    <br />
+                    <div className="form-group">
+                        <label>Phone Number</label>
+                        <input type = "tel" name="phone" value = {formData.phone} onChange={handleChange} placeholder = "Phone Number" />
+                    </div>
+                    <br />
+                    <div className="form-group">
+                        <label>Location</label>
+                        <input type = "text" name="location" value = {formData.location} onChange={handleChange} placeholder = "Location" />
+                    </div>
+                    <br />
+                     {/* === Job Information === */}
+                    <div className="form-group">
+                        <label>Position</label>
+                        <input type = "text" name="position" value = {formData.position} onChange={handleChange} placeholder = "Position" />
+                    </div>
+                    <br />
+                    <div className="form-group">
+                        <label>Resume</label>
+                        <input type = "file" accept=".pdf,.doc,.docx" onChange={handleFileChange} />
+                    </div>
+                    <br />
+                    {/* === Additional Info === */}
+                    <div className="form-group">
+                        <label>Comments</label>
+                        <textarea name="comments" value={formData.comments} onChange={handleChange} />
+                    </div>
+        
                 </div>
-
                 <br />
-
-                <div className="form-group">
-                    <label>Last Name</label>
-                    <input type = "text" name="lastName" value = {formData.lastName} onChange={handleChange} placeholder = "Last Name" />
-                </div>
-
-                <br />
-
-                <div className="form-group">
-                    <label>Email</label>
-                    <input type = "email" name="email" value = {formData.email} onChange={handleChange} placeholder = "Email" />
-                </div>
-
-                <br />
-
-                <div className="form-group">
-                    <label>Phone Number</label>
-                    <input type = "tel" name="phone" value = {formData.phone} onChange={handleChange} placeholder = "Phone Number" />
-                </div>
-
-                <br />
-
-                <div className="form-group">
-                    <label>Location</label>
-                    <input type = "text" name="location" value = {formData.location} onChange={handleChange} placeholder = "Location" />
-                </div>
-
-                <br />
-
-                 {/* === Job Information === */}
-
-                <div className="form-group">
-                    <label>Position</label>
-                    <input type = "text" name="position" value = {formData.position} onChange={handleChange} placeholder = "Position" />
-                </div>
-
-                <br />
-
-                <div className="form-group">
-                    <label>Resume</label>
-                    <input type = "file" accept=".pdf,.doc,.docx" onChange={handleChange} />
-                </div>
-
-                <br />
-
-                {/* === Additional Info === */}
-
-                <div className="form-group">
-                    <label>Comments</label>
-                    <textarea name="comments" value={formData.comments} onChange={handleChange} />
-                </div>
-                
-            </div>
-
-            <br />
-
-            {/* === Submit === */}
-
-            <button type="submit">Submit</button>
-        </form>
+                {/* === Submit === */}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
 
     

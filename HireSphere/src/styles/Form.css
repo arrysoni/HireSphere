@@ -1,32 +1,81 @@
+/* Fullscreen wrapper with colorful background */
+.form-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-image:
+    radial-gradient(at 40% 20%, hsla(28, 100%, 74%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 50%),
+    radial-gradient(at 46% 53%, hsla(340, 100%, 76%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 50%);
+  background-color: #000; /* fallback */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Form container styling */
 .form-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    color: aqua;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-  }
-  
-  label {
-    text-align: left;
-    margin-bottom: 6px;
-    font-weight: bold;
-  }
-  
-  input,
-  textarea {
-    padding: 8px;
-    font-size: 16px;
-  }
-  
-  button {
-    margin-top: 20px;
-    padding: 10px 16px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
+  background-color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  backdrop-filter: blur(12px);
+  color: lightcoral;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
+} 
+
+.form-container h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Inputs, labels, textarea */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+input,
+textarea {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: rgb(237, 164, 164); 
+  color: white;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: lightcoral;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background-color: #111827;
+}
