@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div>
-      <Form />
+      <Board />
     </div>
   )
 }

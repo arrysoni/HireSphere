@@ -4,7 +4,12 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  background-image: linear-gradient( purple, pink);
+  background-color:#af99ff;
+  background-image:
+    radial-gradient(at 85% 11%, hsla(242,99%,70%,1) 0px, transparent 50%),
+    radial-gradient(at 56% 24%, hsla(204,66%,63%,1) 0px, transparent 50%),
+    radial-gradient(at 53% 45%, hsla(61,83%,65%,1) 0px, transparent 50%),
+    radial-gradient(at 34% 67%, hsla(281,76%,63%,1) 0px, transparent 50%);
   min-height: 100vh;
 }
 
@@ -48,17 +53,19 @@
 }
 
 .item-card {
-  background-color: #f8fafc;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.75rem;
-  cursor: grab;
-  font-size: 1rem;
-  color: #111827;
-  position: relative;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
+    background-color: #f8fafc;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 0.75rem 2rem 0.75rem 1rem; /* more padding on the right */
+    margin-bottom: 0.75rem;
+    cursor: grab;
+    font-size: 1rem;
+    color: #111827;
+    position: relative;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    line-height: 1.4;
+  }
+  
 
 .item-card:hover {
   background-color: #e2e8f0;
@@ -66,16 +73,29 @@
 }
 
 .remove-btn {
-  position: absolute;
-  right: 10px;
-  top: 8px;
-  background: none;
-  border: none;
-  color: #ef4444;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #ef4444;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    height: 1rem;
+    width: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .remove-btn:hover {
+    color: #b91c1c;
+  }
+  
 
 .remove-btn:hover {
   color: #b91c1c;
