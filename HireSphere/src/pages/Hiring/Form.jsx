@@ -17,14 +17,14 @@ const Form = () => {
 
     const handleChange = (event) => {
         const {name, value} = event.target;
-        setFormData(() => ({
+        setFormData((prevData) => ({
             ...prevData,
             [name]: value
         }));
     };
 
     const handleFileChange = (event) => {
-        setFormData(() => ({
+        setFormData((prevData) => ({
             ...prevData,
             resume: event.target.files[0]
         }));
