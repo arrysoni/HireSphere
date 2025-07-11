@@ -30,11 +30,52 @@ const Form = () => {
         }));
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault(); 
-        console.log("Submitted Form: ", {formData});
-        alert(`Thank you ${formData.firstName} ${formData.lastName}! Your application has been received!`);
+    // const handleSubmit = (event) => {
+    //     event.preventDefault(); 
+    //     console.log("Submitted Form: ", {formData});
+    //     alert(`Thank you ${formData.firstName} ${formData.lastName}! Your application has been received!`);
+    // };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+    
+        // Build the payload using your state
+        const payload = {
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            phone: formData.phone,
+            location: formData.location,
+            position: formData.position,
+            comments: formData.comments,
+            
+        };
+    
+        try {
+            const response = await fetch("https://api.apispreadsheets.com/data/6Vl17mibujZ9KT7t/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ data: payload })
+            });
+    
+            if (response.status === 201) {
+                // ✅ SUCCESS
+                alert(`Thank you ${formData.firstName} ${formData.lastName}! Your application has been received!`);
+                console.log("Data submitted successfully!");
+            } else {
+                // ❌ ERROR
+                alert("Submission failed. Please try again.");
+                console.error("Error status:", response.status);
+            }
+        } catch (error) {
+            console.error("Network or server error:", error);
+            alert("Something went wrong. Please try again later.");
+        }
     };
+    
+    
 
   return (
 
