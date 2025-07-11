@@ -1,26 +1,16 @@
-import React, { useDeferredValue, useState } from 'react';
-import Form from '/Users/aaryasoni/Desktop/HireSphere/HireSphere/src/pages/Hiring/Form.jsx';
-import Board from '/Users/aaryasoni/Desktop/HireSphere/HireSphere/src/components/KanbanBoard/Board.jsx';
-
-import './App.css'
+import { Routes, Route } from 'react-router-dom';
+import CandidateDashboard from './pages/CandidateDashboard';
+import CandidateInterview from './pages/CandidateInterview';
+import CandidateSettings from './pages/CandidateSettings';
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  // line 1
-  // line 2
-  // line 3
-  //  ('url') => browser
-    // .then() // If success
-    // .catch() //  If error
-
-
-  // line 4
-  // line 5
-
   return (
-    <Form />
-  )
+    <Routes>
+      <Route path="/candidate/dashboard" element={<CandidateDashboard />} />
+      <Route path="/candidate/interviews" element={<CandidateInterview />} />
+      <Route path="/candidate/settings" element={<CandidateSettings />} />
+    </Routes>
+  );
 }
- 
-export default App
+
+export default App;
